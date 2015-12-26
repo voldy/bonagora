@@ -1,0 +1,30 @@
+
+<form {{action 'authenticate' on='submit'}}>
+  <div class="mdl-cell mdl-cell--12-col">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{input value=identification class='mdl-textfield__input'}}
+      <label for="identification" class="mdl-textfield__label">Login</label>
+    </div>
+  </div>
+
+  <div class="mdl-cell mdl-cell--12-col">
+    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+      {{input value=password class='mdl-textfield__input' type='password'}}
+      <label for="password" class="mdl-textfield__label">Password</label>
+    </div>
+  </div>
+
+  <div class="mdl-cell mdl-cell--12-col">
+    <button type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">Login</button>
+  </div>
+</form>
+
+<div class="mdl-cell mdl-cell--12-col">
+  {{#if errorMessage}}
+  <div>
+    <p>
+      <strong>Login failed:</strong> <code>{{errorMessage}}</code>
+    </p>
+  </div>
+  {{/if}}
+</div>

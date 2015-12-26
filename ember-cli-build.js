@@ -23,6 +23,7 @@ module.exports = function(defaults) {
   // along with the exports of each module as its value.
 
   app.import(app.bowerDirectory + '/material-design-lite/material.css');
+  app.import(app.bowerDirectory + '/material-design-lite/material.min.js');
 
   return app.toTree();
 };

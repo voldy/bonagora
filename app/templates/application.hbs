@@ -1,13 +1,34 @@
-<div class="mdl-grid">
-{{#mdl-card title='Welcome to Ember.js'}}
-  <div class="mdl-card__supporting-text">
-    You have successfully installed <a href='https://github.com/truenorth/ember-material-lite' target='_blank'>ember-material-lite</a>. It's based on an awesome google project called <a href='https://github.com/google/material-design-lite' target='_blank'>Material Design Lite</a>
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Bonagora Challenge</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Products</a>
+      </nav>
+    </div>
+  </header>
+  <div class="mdl-layout__drawer">
+    {{#if session.isAuthenticated}}
+      <span class="mdl-layout-title">Menu</span>
+      <nav class="mdl-navigation">
+        <a class="mdl-navigation__link" href="">Products</a>
+        <a {{action 'logout'}} class="mdl-navigation__link">Logout</a>
+      </nav>
+    {{else}}
+      <nav class="mdl-navigation">
+        {{#link-to 'login' class="mdl-navigation__link"}}Login{{/link-to}}
+      </nav>
+    {{/if}}
   </div>
-  {{#mdl-card-actions}}
-    {{mdl-button text='Test Button'}}
-  {{/mdl-card-actions}}
-{{/mdl-card}}
+  <main class="mdl-layout__content">
+    <div class="page-content">
+      <div class="mdl-grid">
+        {{outlet}}
+      </div>
+    </div>
+  </main>
 </div>
-
-
-{{outlet}}
