@@ -20,8 +20,8 @@ export default OAuth2PasswordGrant.extend({
         data.scope = scopesString;
       }
       this.makeRequest(serverTokenEndpoint, data).then((fullResponse) => {
-        var response = fullResponse['data']['auth']
-        const user = fullResponse['data']['user']
+        var response = fullResponse['data']['auth'];
+        const user = fullResponse['data']['user'];
         run(() => {
           const expiresAt = this._absolutizeExpirationTime(response['expires_in']);
           this._scheduleAccessTokenRefresh(response['expires_in'], expiresAt, response['refresh_token']);
@@ -29,9 +29,9 @@ export default OAuth2PasswordGrant.extend({
             response = Ember.merge(response, { 'expires_at': expiresAt });
           }
 
-          const name = user['firstname'] + ' ' + user['lastname']
+          const name = user['firstname'] + ' ' + user['lastname'];
           response = Ember.merge(response,
-            { uid: user['uid'], email: user['email'], 'name': name })
+            { uid: user['uid'], email: user['email'], 'name': name });
           resolve(response);
         });
       }, (xhr) => {

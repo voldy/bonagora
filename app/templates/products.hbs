@@ -1,21 +1,24 @@
 {{#each model as |product|}}
-
-  <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
-    <div class="product-card mdl-card mdl-shadow--4dp">
-      <div class="mdl-card__media">
-        <img src="{{product.image.url}}" width="300" border="0" alt="" style="padding:10px;">
-      </div>
-      <div class="mdl-card__supporting-text">
-        {{product.name}}
-        <br/>
-        SKU {{product.sku}}
-      </div>
-      <div class="mdl-card__actions mdl-card--border">
-        {{product.price}}
-        <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-          Add to card
-        </a>
-      </div>
+<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet">
+  <div class="product-card mdl-card mdl-shadow--4dp">
+    <div class="mdl-card__media">
+      <img src="{{product.image.url}}" width="300" border="0" alt="" style="padding:10px;">
+    </div>
+    <div class="mdl-card__supporting-text">
+      {{product.name}}
+      <br/>
+      SKU {{product.sku}}
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+      {{product.price}}
+      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+        Add to card
+      </a>
     </div>
   </div>
+</div>
 {{/each}}
+
+{{#infinity-loader infinityModel=model}}
+<div class="mdl-progress mdl-js-progress mdl-progress__indeterminate"></div>
+{{/infinity-loader}}
