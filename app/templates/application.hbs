@@ -1,29 +1,20 @@
-<div class="mdl-layout mdl-js-layout ">
+<div class="mdl-layout">
   <header class="mdl-layout__header">
     <div class="mdl-layout__header-row">
       <!-- Title -->
       <span class="mdl-layout-title">Bonagora Challenge</span>
-      <!-- Add spacer, to align navigation to the right -->
-      <div class="mdl-layout-spacer"></div>
-      <!-- Navigation. We hide it in small screens. -->
-      <nav class="mdl-navigation mdl-layout--large-screen-only">
-        {{#link-to 'products' class="mdl-navigation__link"}}Products{{/link-to}}
-      </nav>
+      {{#if session.isAuthenticated}}
+        <nav class="mdl-navigation">
+          {{#link-to 'products' class="mdl-navigation__link"}}Products{{/link-to}}
+          <a {{action 'logout'}} class="mdl-navigation__link">Logout</a>
+        </nav>
+      {{else}}
+        <nav class="mdl-navigation">
+          {{#link-to 'login' class="mdl-navigation__link"}}Login{{/link-to}}
+        </nav>
+      {{/if}}
     </div>
   </header>
-  <div class="mdl-layout__drawer">
-    {{#if session.isAuthenticated}}
-      <span class="mdl-layout-title">Menu</span>
-      <nav class="mdl-navigation">
-        {{#link-to 'products' class="mdl-navigation__link"}}Products{{/link-to}}
-        <a {{action 'logout'}} class="mdl-navigation__link">Logout</a>
-      </nav>
-    {{else}}
-      <nav class="mdl-navigation">
-        {{#link-to 'login' class="mdl-navigation__link"}}Login{{/link-to}}
-      </nav>
-    {{/if}}
-  </div>
   <main class="mdl-layout__content">
     <div class="page-content">
       {{outlet}}
@@ -34,7 +25,7 @@
   <div class="mdl-mini-footer__left-section">
     <div class="mdl-logo">Vladimir Zhukov</div>
     <ul class="mdl-mini-footer__link-list">
-      <li><a href="#">Contact</a></li>
+      <li><a href="https://github.com/voldy/bonagora" target="_blank">Github</a></li>
     </ul>
   </div>
   {{/mdl-mini-footer}}

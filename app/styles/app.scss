@@ -8,5 +8,9 @@ $color-accent: $palette-pink-A200;
 .mdl-grid {
   max-width: 840px;
 }
+.page-content {
+  min-height: 300px;
+  margin-bottom: 100px;
+}
 
 @import 'products';

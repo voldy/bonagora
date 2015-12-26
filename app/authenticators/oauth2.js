@@ -31,7 +31,7 @@ export default OAuth2PasswordGrant.extend({
 
           const name = user['firstname'] + ' ' + user['lastname'];
           response = Ember.merge(response,
-            { uid: user['uid'], email: user['email'], 'name': name });
+            { uid: user['uid'], email: user['email'], 'userName': name });
           resolve(response);
         });
       }, (xhr) => {

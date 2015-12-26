@@ -1,17 +1,11 @@
 
 <form {{action 'authenticate' on='submit'}}>
   <div class="mdl-cell mdl-cell--12-col">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      {{input value=identification class='mdl-textfield__input'}}
-      <label for="identification" class="mdl-textfield__label">Login</label>
-    </div>
+    {{mdl-textfield value=identification label="Email"}}
   </div>
 
   <div class="mdl-cell mdl-cell--12-col">
-    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-      {{input value=password class='mdl-textfield__input' type='password'}}
-      <label for="password" class="mdl-textfield__label">Password</label>
-    </div>
+    {{mdl-textfield value=password type='password' label="Password"}}
   </div>
 
   <div class="mdl-cell mdl-cell--12-col">
