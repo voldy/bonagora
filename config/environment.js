@@ -54,5 +54,10 @@ module.exports = function(environment) {
     'report-uri': "'none'"
   }
 
+  ENV['ember-simple-auth'] = {
+    routeAfterAuthentication: 'products',
+    routeIfAlreadyAuthenticated: 'products'
+  };
+
   return ENV;
 };

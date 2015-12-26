@@ -4,3 +4,9 @@ $color-primary: $palette-blue-500;
 $color-accent: $palette-pink-A200;
 
 @import "material-design-lite";
+
+.mdl-grid {
+  max-width: 840px;
+}
+
+@import 'products';
